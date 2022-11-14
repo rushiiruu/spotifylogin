@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets.css">
+    <script>
+        function validate()
+        {
+            var user=document.getElementById("username").value;
+            var pass=document.getElementById("password").value;
+            alphadigit=0;
+            alphaup=/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/;
+            alphalow=/[abcdefghijklmnopqrstuvwxyz]/;
+            alphadigit1=0;
+            digit=/[0-9]/;
+            special=/[!@#$%^&*~.,]/;
+            if(user.match(alphaup)&&user.match(alphalow))
+            alphadigit=1;
+            if(pass.match(digit)&&pass.match(special))
+            alphadigit1=1;
+            
+            if(user==""||user.length<5)
+            {
+            alert("Username must not be less than 5 characters and must contain a combination of lowercase and uppercase.");
+            return false;
+            }
+            else if(pass==""||pass.length<6)
+            {
+            alert("Password must not be less than 6 characters and must contain at least one numeric and special character.");
+            return false;
+            }
+          
+            else if(alphadigit==0)
+            {
+                alert("Please enter a combination of lowercase and uppercase in username");
+                return false;
+            }
+            
+          
+            else if(alphadigit1==0)
+            {
+                alert("Please enter at least one numeric and special character in password");
+                return false;
+            }
+            else{
+                alert("Successful log in")
+                return true;
+            }
+            return true;
+
+        }
+    </script>
+
+    
+    
+</head>
+<body>
+    <div class="main-box">
+        <div class="spotify">
+           <img src="spot.png"> 
+           <span> Spookify</span>
+        </div>
+    <div class="sign-box">
+        <a id="signin">LOG IN</a>
+        
+        <a>SIGN UP</a>
+    </div>
+    <div class="username">
+        <input type="text" name="" placeholder="  Username" id="username" required>
+        <input type="password" name="" placeholder="  Password" id="password" required>
+        <div class="check">
+            <input type="checkbox" name="" id="checkbox">
+            <label for="checkbox">stay signed in</label>
+        </div>
+        <input type="submit" value="SIGN IN" onclick="validate()" id="sign">
+    </div>
+    <div class="forgot">Forgot Password?</div>
+    </div>
+</body>
+</html>
